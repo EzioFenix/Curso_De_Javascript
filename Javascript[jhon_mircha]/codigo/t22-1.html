@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function perro()
+        {
+            console.log(this)
+        }
+        const perro2={
+            nombre:"Kenai",
+            ladrar:function()
+            {
+                console.log(this);
+            }
+        }
+        const perro3={
+            nombre:"Kenai",
+            ladrar:()=>
+            {
+                console.log(this);
+            }
+        }
+        perro()
+        perro2.ladrar()
+        perro3.ladrar()
+
+    </script>
+</body>
+</html>

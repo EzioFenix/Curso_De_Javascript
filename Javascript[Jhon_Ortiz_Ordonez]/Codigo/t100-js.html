@@ -1,0 +1,28 @@
+>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let nombre=prompt("ingresa tu nombre completo")
+        let numero=prompt("Ingresa tu numero favorito")
+        let separado=nombre.split(" ")
+        let gamertag
+        separado.forEach((elemento,index)=>
+        { 
+            if(index==0)
+                gamertag=elemento
+            else
+                gamertag+=elemento.substring(0,1)
+        })
+        gamertag+=numero
+        document.writeln(`nombre ${nombre}`)
+        document.writeln(`numero ${numero}`)
+        document.writeln(`gamertag: ${gamertag}`)
+    </script>
+</body>
+</html>
