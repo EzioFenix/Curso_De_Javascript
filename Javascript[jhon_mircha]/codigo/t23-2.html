@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const perro1={
+            nombre:"firulais",
+            ladrar(){
+                console.log("Gua Gua")
+            }
+        }
+        const perro2={
+            nombre:"fido",
+            ladrar(){
+                console.log("Gua Gua")
+            }
+        }
+
+        function Perru(nombre)
+        {
+            this.nombre=nombre
+            this.ladrar=function()
+            {
+                console.log("gua gua")
+            }
+        }
+
+        const pelusa=new Perru("Pelusa"),
+        pelusa2=new Perru("Pelusa2")
+
+        console.log(perro1)
+        console.log(perro2)
+        console.log(pelusa)
+        console.log(pelusa2)
+    </script>
+</body>
+</html>

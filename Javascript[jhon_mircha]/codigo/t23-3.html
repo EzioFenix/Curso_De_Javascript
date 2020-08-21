@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function PerruV1(nombre)
+        {
+            this.nombre=nombre
+            this.ladrar=function()
+            {
+                console.log("gua gua")
+            }
+        }
+        function PerruV2(nombre)
+        {
+            this.nombre=nombre
+        }
+        PerruV2.prototype.ladrar=function()
+        {
+            console.log("gua gua")
+        }
+
+        const fido1=new PerruV1("fido"),
+        fido2=new PerruV2("fido2")
+        console.log(fido1)
+        console.log(fido2)
+    </script>
+</body>
+</html>

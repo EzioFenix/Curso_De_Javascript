@@ -139,3 +139,152 @@ numeros.forEach((e,i)=>
 
 ![](img/Screenshot_2.png)
 
+---
+
+# Clase 22 Prototipos
+
+ Primero tenemos que introducirnos en teória para poder explicar el orientado a objetos y sus variantes.
+
+ - Javascript es un un lenguaje de Programación Orientada en Prototipos (POP), no en Programación Orientada en Objetos (POO).
+ - Existen similitudes entre ambos enfoques, comparten conceptos  POP y POO, que son **atributos,métodos**
+
+**Métodos:** Son funciones que se encuentran dentro del objeto.
+**Atribustos:** Son variables que se encuentran en el objeto.
+
+```js
+//t23-1.html
+const animal= {
+    nombre:"snopy",
+    sonar(){
+        console.log(`Gua gua`)
+    }
+}
+console.log(animal)
+```
+
+![](img/Screenshot_3.png)
+
+- En la anteiror imagne se puede apreciar que el **objeto literal**  es un prototipo de **objeto**.
+- Posee una función y un atributo
+
+```js
+const perro1={
+            nombre:"firulais",
+            ladrar(){
+                console.log("Gua Gua")
+            }
+        }
+        const perro2={
+            nombre:"fido",
+            ladrar(){
+                console.log("Gua Gua")
+            }
+        }
+
+        function Perru(nombre)
+        {
+            this.nombre=nombre
+            this.ladrar=function()
+            {
+                console.log("gua gua")
+            }
+        }
+
+        const pelusa=new Perru("Pelusa"),
+        pelusa2=new Perru("Pelusa2")
+
+        console.log(perro1)
+        console.log(perro2)
+        console.log(pelusa)
+        console.log(pelusa2)
+```
+
+
+**Resultado**
+
+![](img/Screenshot_5.png)
+
+
+
+- Todos son objetos , solo que los primeros literamente son sólo objetos (objetos literales), los dos siguientes dicen que son instancias  de algo llamado **Perru** es algo aproximado a una clase.
+- Todas "heredad" (No es exacatamente herencia) del prototipo fundamental (object)
+
+Esta manera de lograr implementar "clases" es buena, pero en todos los objetos **Perru** se repite el método **ladrar** lo que es ineficiente, ya por ejemplo otros métoos que se pueden hacer provienen directamente del **_proto_:object** y no se repiten para todos los objetos de la misma "clase".
+
+para mejorarlo ló unico que hacemos es asignarle el método a la función protoipo en ves de a la clase pasando de esto:
+
+```js
+function PerruV1(nombre)
+{
+    this.nombre=nombre
+    this.ladrar=function()
+    {
+        console.log("gua gua")
+    }
+}
+```
+
+a estos
+```js
+function PerruV2(nombre)
+{
+    this.nombre=nombre
+}
+PerruV2.prototype.ladrar=function()
+{
+    console.log("gua gua")
+}
+```
+
+**Conclusiones**
+- Podemos usar este intento de clases para construir objetos con los mismas caracteristicas  pero con diferntes valores, en cambio usando (objetos literales) tienes que copiar la misma estructura para crear objetos identicos.
+
+vemaos como queda el **PerruV1** vs **PerruV2** implementando en el sigueinte código
+
+```js
+//t23-3.html
+function PerruV1(nombre)
+{
+    this.nombre=nombre
+    this.ladrar=function()
+    {
+        console.log("gua gua")
+    }
+}
+function PerruV2(nombre)
+{
+    this.nombre=nombre
+}
+PerruV2.prototype.ladrar=function()
+{
+    console.log("gua gua")
+}
+
+const fido1=new PerruV1("fido"),
+fido2=new PerruV2("fido2")
+console.log(fido1)
+console.log(fido2)
+```
+
+**Resultado**
+
+![](img/Screenshot_6.png)
+
+Observamos , mientras que la version 1 se va duplicar las funciones en todos los objetos, en la verison 2 solo exisitira una vez el método y todos lo aplicaran.
+
+La mejor manera de tener una imagen mental de esto es, piensa que haces galletas y que el molde te salio mal y tienes que arreglar manualmente ese error , o  la otra manera es corrigiendo el molde y que todo ya salga hecho a la medida
+
+## Clases
+
+Piensa que tu eres un pastelero y quieres hacer una galleta, okey, aplanas la masa , le das forma circular y la metes al horno. Genial pruebas la galleta y te quedó deliciosa.
+
+Ahora tu quieres hacer más , pero hacerla  como hiciste la primera te tardaria mucho y es posible que no te quedaran precisamente parecidas, la masa se escurre y en un descuido no sería circula.
+
+Que tal si tuiveramos un molde y con ello solo virtieramos y sale la forma lista para el horno. ¿ Sería más rapido y preciso no?
+¿y si quisieramos cambiar el sabor? Se podría , el molde sólo da forma, pero no lo que lo compone.
+
+Esto que en el ejemplo llamamos **molde** no es más que algo que le da estructura a un objeto, podrían ser por jeemplo personas, describiendo estatura, nombre, edad y pues seria más fácil usando estos moldes, unicamente cambiando las caracteristicas.
+
+# Clase 23
+
+https://www.youtube.com/watch?v=1-m7xtwvH1E&list=PLvq-jIkSeTUZ6QgYYO3MwG9EMqC-KoLXA&index=23

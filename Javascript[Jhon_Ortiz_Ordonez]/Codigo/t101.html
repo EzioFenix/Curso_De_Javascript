@@ -1,0 +1,25 @@
+<!-- Este programa  ingresa una oración mayusculas y minismculas o como sea y esta la pasa a que cada palabra la primera 
+    letra es mayuscula y las demas minnusculas
+    E.g victor ES ProGRAmador  ... Victor Es Prgoramador
+    - No tiene problema con digitos o signos especiales -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const oracion=prompt("Introduce una oración")
+        const particion=oracion.split(" ")
+        let nuevaOracion=""
+        particion.forEach((elemento,index)=>
+        {
+            nuevaOracion+=elemento.substring(0,1).toUpperCase() +elemento.substring(1,elemento.length).toLowerCase()+ " "
+            //.toLowerCase
+        })
+        console.log(nuevaOracion)
+    </script>
+</body>
+</html>
